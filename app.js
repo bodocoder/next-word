@@ -55,7 +55,9 @@ app.get("/remove/:word", function(req, res) {
 })
 
 function removeDone(wordsRaw, existingWords) {
-    // console.log(existingWords);
+    const re = /[a-z]+/;
+    wordsRaw = wordsRaw.filter(word => re.test(word));
+
     return wordsRaw.filter(word =>
         existingWords.indexOf(word) === -1);
 }
