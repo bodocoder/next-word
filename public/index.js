@@ -7,9 +7,6 @@ function encodeImageFileAsURL(element) {
     var reader = new FileReader();
     reader.onloadend = function() {
         const base64img = reader.result;
-        var image = new Image();
-        image.src = base64img;
-        document.getElementById("img-show").appendChild(image);
         document.querySelector("#base64page").value = base64img;
     }
     reader.readAsDataURL(file);
